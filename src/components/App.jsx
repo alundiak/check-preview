@@ -1,22 +1,17 @@
 import React from 'react';
-// import Grid from './components/Grid';
+// import { Divider } from 'semantic-ui-react';
+import Preview from 'components/Preview';
+import GridView from 'components/GridView';
 // import GridItem from './components/GridItem';
-// import Preview from './components/Preview';
 
-class App extends React.Component {
-    state = {
-        abc: 'Hello'
-    }
-    
-    render() {
-        const { abc } = this.state;
-        
-        return (
-            <div>
-                {abc}
-            </div>
-        );
-    }
+export default function App(/* props */) {
+    return (
+        <div className="app-container">
+            <h2>New Check Application</h2>
+            <Preview />
+            {/* <Divider /> */}
+            <h3>Check Profiles</h3>
+            <GridView />
+        </div>
+    );
 }
-
-export default App;

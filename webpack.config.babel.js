@@ -18,7 +18,8 @@ export default env => {
         resolve: {
             alias: {
                 css: resolve(src, './css'),
-                components: resolve(src, './components')
+                components: resolve(src, './components'),
+                img: resolve(src, './images')
             },
             modules: ['node_modules', 'bower_components', 'src'],
             extensions: ['.js', '.css', '.less', '.jsx', '.json']
@@ -51,6 +52,12 @@ export default env => {
                             }
                         }
                     ])
+                },
+                {
+                    test: /\.(png|svg|jpg|gif)$/,
+                    use: [
+                        'file-loader'
+                    ]
                 }
             ]
         },
