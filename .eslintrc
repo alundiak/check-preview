@@ -1,0 +1,60 @@
+{
+    "root": true,
+    "parser": "babel-eslint",
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": true
+    },
+    "parserOptions": {
+        "allowImportExportEverywhere": true
+    },
+    "plugins": [
+        "import"
+    ],
+    "extends": [
+        "./node_modules/eslint-config-airbnb/.eslintrc"
+    ],
+    "settings": {
+        "import/resolver": "webpack"
+    },
+    "rules": {
+        "jsx-a11y/href-no-hash": 0,
+        "jsx-a11y/label-has-for": 0,
+        "jsx-a11y/anchor-is-valid": 0,
+        "import/no-self-import": 0,
+        "import/no-unresolved": 0,
+        "import/no-named-as-default": 0,
+        "import/no-extraneous-dependencies": 0,
+        "import/no-duplicates": 0,
+        "import/no-named-as-default-member": 0,
+        "import/no-cycle": 0,
+        "import/no-useless-path-segments": 0,
+        "import/extensions": 0,
+        "import/named": 0,
+        "import/order": 0,
+        "class-methods-use-this": 1,
+        "max-len": [
+            "error",
+            120,
+            2,
+            {
+                "ignoreUrls": true,
+                "ignoreComments": false,
+                "ignoreRegExpLiterals": true,
+                "ignoreStrings": true,
+                "ignoreTemplateLiterals": true
+            }
+        ],
+        "comma-dangle": 0,
+        "react/react-in-jsx-scope": 0,
+        "space-infix-ops": 0,
+        "no-duplicate-imports": 0,
+        "react/prop-types": 0,
+        
+        "indent": ["off"],
+        "react/jsx-indent": ["off"],
+        "eol-last": ["off"],
+        "no-trailing-spaces": ["off"]
+    }
+}
