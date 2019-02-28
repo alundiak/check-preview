@@ -9,6 +9,9 @@
 .grid-container {
   margin: 10px;
 }
+.grid-container tbody tr {
+  cursor: pointer;
+}
 .preview-image {
   display: flex;
   justify-content: center;
