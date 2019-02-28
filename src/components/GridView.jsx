@@ -27,15 +27,19 @@ class GridView extends React.Component {
     ...this.props
   }
 
-  render() {
-    const { previewCheck } = this.props;
 
-    // TODO move this func. out
-    const showRows = _.times(4, i => (
-      <Table.Row key={i} onClick={() => previewCheck(i)}>
+  // TODO move this func. out
+  showRows = _.times(4, index => {
+    const i = index + 1;
+    return (
+      <Table.Row key={i} onClick={() => this.props.previewCheck(i)}>
         {showTableCells(i)}
       </Table.Row>
-    ));
+    );
+  })
+
+  render() {
+    const { previewCheck } = this.props;
 
     return (
       <div className="grid-container">
@@ -51,7 +55,7 @@ class GridView extends React.Component {
           </Table.Header>
 
           <Table.Body>
-            {showRows}
+            {this.showRows}
           </Table.Body>
         </Table>
       </div>

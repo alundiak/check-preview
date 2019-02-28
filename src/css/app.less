@@ -6,6 +6,49 @@
         margin: 20px;
         padding: 5px;
     }
+
+    .layer {
+        position: relative;
+
+        .interactive-layer {
+            position: absolute;
+            border: 1px solid green;
+            top: 10px;    
+            left: 4px;
+            bottom: 35px;
+            right: 7px;
+
+            > div {
+                position: absolute;
+            }
+
+            .company-logo {
+                top: 20px;
+                left: 10px;
+            }
+
+            .bank-logo {
+                top: 140px;
+                left: 10px;
+            }
+
+            .micr-line {
+                width: 50%;
+                position: relative;
+                bottom: -195px;
+                left: 22px;
+            }
+        }
+    }
+
+    .adjust-images {
+        .adjust-block {
+            display: inline-block;
+        }
+        .save-and-preview {
+            margin: 10px;
+        }
+    }
 }
 
 .grid-container {

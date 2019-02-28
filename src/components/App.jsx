@@ -1,8 +1,8 @@
 import React from 'react';
-// import { Divider } from 'semantic-ui-react';
 import Preview from 'components/Preview';
 import GridView from 'components/GridView';
 // import GridItem from './components/GridItem';
+import { Icon } from 'semantic-ui-react';
 
 class App extends React.Component {
     state = {
@@ -49,7 +49,15 @@ class App extends React.Component {
                     handlePrint={this.handlePrint}
                     previewData={previewData}
                 />
-                {/* <Divider /> */}
+
+                <div>
+                    <Icon name="edit" />
+                    <a href="#adjust" onClick={this.handleAdjust}>Adjust</a>
+                    &nbsp;
+                    <Icon name="print" />
+                    <a href="#print" onClick={this.handlePrint}>Print</a>
+                </div>
+
                 <h3>Check Profiles</h3>
                 <GridView
                     previewCheck={this.previewCheck}
