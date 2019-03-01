@@ -2,10 +2,11 @@ import React from 'react';
 import Preview from 'components/Preview';
 import GridView from 'components/GridView';
 // import GridItem from './components/GridItem';
-import { Icon } from 'semantic-ui-react';
+import { Icon, Input } from 'semantic-ui-react';
 
 class App extends React.Component {
     state = {
+        showAdjust: false,
         previewData: {
             imgId: 1
         }
@@ -13,41 +14,37 @@ class App extends React.Component {
 
     handleAdjust = () => {
         this.setState({
-            previewData: {
-                data: 'requiresAdjust',
-                imgId: 5
-            }
+            showAdjust: true,
+            previewData: {} // TODO
         });
     }
-
-    handlePrint = () => {
+    
+    hideAdjustCallback = () => {
         this.setState({
-            previewData: {
-                data: 'requiresPrint',
-                imgId: 3
-            }
+            showAdjust: false
         });
     }
 
     previewCheck = (rowId) => { // so far after row click, artificially rowId => imgId
+        // const previewData = {}; // assumed to get new data from Grid Row
         this.setState({
             previewData: {
-                data: 'triggersPreview', // assumed to get new data from Grid Row
-                imgId: rowId
+                imgId: rowId  
             }
         });
     }
 
     render() {
-        const { previewData } = this.state;
+        const { showAdjust, previewData } = this.state;
 
         return (
             <div className="app-container">
+                <Input type="number" />
                 <h2>New Check Application</h2>
                 <Preview
-                    handleAdjust={this.handleAdjust}
-                    handlePrint={this.handlePrint}
                     previewData={previewData}
+                    showAdjust={showAdjust}
+                    hideAdjustCallback={this.hideAdjustCallback}
                 />
 
                 <div>
@@ -55,7 +52,7 @@ class App extends React.Component {
                     <a href="#adjust" onClick={this.handleAdjust}>Adjust</a>
                     &nbsp;
                     <Icon name="print" />
-                    <a href="#print" onClick={this.handlePrint}>Print</a>
+                    <a href="#print">Print</a>
                 </div>
 
                 <h3>Check Profiles</h3>

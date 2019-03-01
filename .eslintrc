@@ -34,18 +34,6 @@
         "import/named": 0,
         "import/order": 0,
         "class-methods-use-this": 1,
-        "max-len": [
-            "error",
-            120,
-            2,
-            {
-                "ignoreUrls": true,
-                "ignoreComments": false,
-                "ignoreRegExpLiterals": true,
-                "ignoreStrings": true,
-                "ignoreTemplateLiterals": true
-            }
-        ],
         "comma-dangle": 0,
         "react/react-in-jsx-scope": 0,
         "space-infix-ops": 0,
@@ -53,6 +41,8 @@
         "react/prop-types": 0,
         
         // TEMPORRAY
+        "padded-blocks": 0,
+        "max-len": 0,
         "eol-last": 0,
         "indent": 0,
         "no-trailing-spaces": 0,
