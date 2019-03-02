@@ -2,9 +2,51 @@
   margin: 10px;
   border: 1px solid grey;
 }
+.preview-container .sample {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: grey;
+  z-index: 1;
+}
 .preview-container .preview-info {
   margin: 20px;
   padding: 5px;
+}
+.preview-container .layer {
+  position: relative;
+}
+.preview-container .layer .interactive-layer {
+  position: absolute;
+  border: 1px solid green;
+  top: 10px;
+  left: 4px;
+  bottom: 35px;
+  right: 7px;
+}
+.preview-container .layer .interactive-layer > div {
+  position: absolute;
+}
+.preview-container .layer .interactive-layer .company-logo {
+  top: 20px;
+  left: 10px;
+}
+.preview-container .layer .interactive-layer .bank-logo {
+  top: 140px;
+  left: 10px;
+}
+.preview-container .layer .interactive-layer .micr-line {
+  width: 50%;
+  position: relative;
+  bottom: -195px;
+  left: 22px;
+}
+.preview-container .adjust-images .adjust-block {
+  display: inline-block;
+}
+.preview-container .adjust-images .save-and-preview {
+  margin: 10px;
 }
 .grid-container {
   margin: 10px;

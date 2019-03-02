@@ -2,7 +2,7 @@ import React from 'react';
 import Preview from 'components/Preview';
 import GridView from 'components/GridView';
 // import GridItem from './components/GridItem';
-import { Icon, Input } from 'semantic-ui-react';
+import { Icon } from 'semantic-ui-react';
 
 class App extends React.Component {
     state = {
@@ -39,7 +39,6 @@ class App extends React.Component {
 
         return (
             <div className="app-container">
-                <Input type="number" />
                 <h2>New Check Application</h2>
                 <Preview
                     previewData={previewData}
