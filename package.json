@@ -1,10 +1,11 @@
 {
   "name": "check-preview",
   "version": "1.0.0",
-  "description": "Interactive Check Page Skeleton - Grid, Items, Preview.",
+  "description": "POC - Interactive Check Page Skeleton - Grid, Items, Preview.",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode production --env.prod",
+    "devBuild": "webpack --mode development --env.dev",
+    "prodBuild": "webpack --mode production --env.prod",
     "start": "webpack-dev-server --mode development --env.dev",
     "test": "jest --verbose --runInBand",
     "lint": "eslint --fix --format node_modules/eslint-friendly-formatter \"./src/**/*.js*\""

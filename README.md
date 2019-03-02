@@ -1,5 +1,7 @@
 # check-preview
 
+POC-like project - Interactive Check Page Skeleton - Grid, Items, Preview.
+
 ## Logic Flow
 
 - By default page load, Preview shows with sample image.

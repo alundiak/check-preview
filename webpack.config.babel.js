@@ -74,7 +74,7 @@ export default env => {
                 minify: {
                     html5: true,
                     removeComments: true,
-                    useShortDoctype: true,
+                    useShortDoctype: true, // this generates <!doctypehtml>
                     removeTagWhitespace: true,
                     removeStyleLinkTypeAttributes: true,
                     removeScriptTypeAttributes: true,

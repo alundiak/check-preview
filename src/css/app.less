@@ -1,6 +1,16 @@
+.controls{
+    margin: 10px;
+}
+
 .preview-container {
     margin: 10px;
     border: 1px solid grey;
+
+    .preview-check-profile {
+        position: absolute;
+        display: inline-block;
+        right: 50px;
+    } 
 
     .sample {
         position: absolute;
@@ -44,13 +54,26 @@
             .micr-line {
                 width: 50%;
                 position: relative;
-                bottom: -195px;
-                left: 22px;
+                top: 195px;
+                left: 15px;
+            }
+
+            .signature {
+                width: 42%;
+                position: relative;
+                top: 153px;
+                left: 340px;
+
+                img {
+                    width: 40%;
+                    display: inline-block;
+                }
             }
         }
     }
 
     .adjust-images {
+        margin: 10px;
         .adjust-block {
             display: inline-block;
         }

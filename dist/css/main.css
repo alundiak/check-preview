@@ -1,6 +1,14 @@
+.controls {
+  margin: 10px;
+}
 .preview-container {
   margin: 10px;
   border: 1px solid grey;
+}
+.preview-container .preview-check-profile {
+  position: absolute;
+  display: inline-block;
+  right: 50px;
 }
 .preview-container .sample {
   position: absolute;
@@ -39,8 +47,21 @@
 .preview-container .layer .interactive-layer .micr-line {
   width: 50%;
   position: relative;
-  bottom: -195px;
-  left: 22px;
+  top: 195px;
+  left: 15px;
+}
+.preview-container .layer .interactive-layer .signature {
+  width: 42%;
+  position: relative;
+  top: 153px;
+  left: 340px;
+}
+.preview-container .layer .interactive-layer .signature img {
+  width: 40%;
+  display: inline-block;
+}
+.preview-container .adjust-images {
+  margin: 10px;
 }
 .preview-container .adjust-images .adjust-block {
   display: inline-block;
