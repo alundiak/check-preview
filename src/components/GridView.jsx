@@ -18,6 +18,8 @@ class GridView extends React.Component {
     rememberSelectedRow = (newRowIndex) => {
         this.setState({
             clickedRowIndex: newRowIndex
+        }, () => {
+            this.props.propagateSelectedRow(newRowIndex); //eslint-disable-line
         });
     }
 

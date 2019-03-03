@@ -4,7 +4,7 @@ import { Icon, Input, Button } from 'semantic-ui-react';
 class AdjustImages extends React.Component {
     constructor(props) {
         super(props);
-        console.log("AdjustImages  - constructor", props);
+        console.log('AdjustImages  - constructor', props);
         this.state = {
             ...props.initialAdjustData //eslint-disable-line
         };
@@ -14,7 +14,9 @@ class AdjustImages extends React.Component {
         console.log('AdjustImages - componentWillReceiveProps');
         // This will erase any local state updates!
         // Do not do this.
-        // YES - it does
+        // YES - it does.
+        // Latest - nextProps contains same data whish is already in state.
+        // But it is the same when state changed. When props changed, it really helps here.
         this.setState({ ...nextProps.initialAdjustData });
     }
 
@@ -31,21 +33,28 @@ class AdjustImages extends React.Component {
         });
     }
 
-    saveAndClose = () => {
+    saveAdjustments = () => {
+        console.log(this.props); // initialAdjustData is same as in state. Something wrong here
+
         this.collectAdjustDataAndSave();
         this.props.hideAdjustCallback(); //eslint-disable-line
     }
 
+    close = () => {
+        const { hideAdjustCallback, clearPreviewDataCallback } = this.props;
+
+        clearPreviewDataCallback(); // TODO - this is not working correct
+        hideAdjustCallback();
+    }
+
     render() {
-        console.log("AdjustImages - render");
+        console.log('AdjustImages - render');
         const {
             companyLogoV, companyLogoH,
             bankLogoV, bankLogoH,
             micrLineV, micrLineH,
             signatureV, signatureH
         } = this.state; // Have to use state here, to have Semantic UI Input work OK
-
-        const { hideAdjustCallback } = this.props;
 
         return (
             <div className="adjust-images">
@@ -161,9 +170,9 @@ class AdjustImages extends React.Component {
 
                 <div className="adjust-block save-and-preview">
                     <Button.Group>
-                        <Button onClick={hideAdjustCallback}>Close</Button>
+                        <Button onClick={this.close}>Close</Button>
                         <Button.Or text="or" />
-                        <Button primary onClick={this.saveAndClose}>Save</Button>
+                        <Button primary onClick={this.saveAdjustments}>Save</Button>
                     </Button.Group>
                 </div>
             </div>

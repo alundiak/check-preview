@@ -11,11 +11,12 @@ import signatureImage from 'images/signature.png';
 // If Component, then re-rendered when state changed AND when props changed.
 class Preview extends React.Component {
     constructor(props) {
-        console.log("Preview - constructor");
+        console.log('Preview - constructor');
         super(props);
+        const { previewData } = this.props;
         this.state = {
             showSample: false,
-            previewData: this.props.previewData || {} //eslint-disable-line
+            previewData
         };
     }
 
@@ -29,6 +30,8 @@ class Preview extends React.Component {
         console.log('Preview - componentWillReceiveProps');
         // This will erase any local state updates!
         // Do not do this.
+        // Latest - nextProps contains same data whish is already in state.
+        // But it is the same when state changed. When props changed, it really helps here.
         this.setState({ previewData: nextProps.previewData });
     }
 
@@ -39,7 +42,7 @@ class Preview extends React.Component {
     }
 
     passAdjustImagesState = (adjustImagesState) => {
-        this.setState(prevState => {
+        this.setState((prevState) => {
             const { previewData: prevPreviewData } = prevState;
             Object.assign(prevPreviewData.adjustData, adjustImagesState);
 
@@ -58,7 +61,7 @@ class Preview extends React.Component {
     render() {
         console.log("Preview - render");
         const { showSample, previewData: previewDataFromState } = this.state;
-        const { showAdjust, hideAdjustCallback, previewData: previewData } = this.props;
+        const { showAdjust, hideAdjustCallback, clearPreviewDataCallback, previewData: previewDataFromProps } = this.props; // eslint-disable-line
 
         const { checkProfileName, adjustData } = previewDataFromState;
 
@@ -125,6 +128,7 @@ class Preview extends React.Component {
                     <AdjustImages
                         initialAdjustData={adjustData}
                         hideAdjustCallback={hideAdjustCallback}
+                        clearPreviewDataCallback={clearPreviewDataCallback}
                         passAdjustImagesState={this.passAdjustImagesState}
                     />
                 ) : null}
