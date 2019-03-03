@@ -39,7 +39,7 @@
         "space-infix-ops": 0,
         "no-duplicate-imports": 0,
         "react/prop-types": 0,
-        
+
         // TEMPORRAY
         "padded-blocks": 0,
         "max-len": 0,
@@ -51,6 +51,7 @@
         "react/jsx-indent": 0,
         "react/jsx-indent-props": 0,
         "react/prefer-stateless-function": 0,
-        "react/jsx-one-expression-per-line": 0
+        "react/jsx-one-expression-per-line": 0,
+        "react/jsx-closing-bracket-location": 0
     }
 }

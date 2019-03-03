@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Icon } from 'semantic-ui-react';
+import { Image, Icon, Label, Button } from 'semantic-ui-react';
 import AdjustImages from 'components/AdjustImages';
 import Sample from 'components/Sample';
 
@@ -7,11 +7,20 @@ import checkDesignImage from 'images/check_design_1.gif';
 import micrLineImage from 'images/micr_line.png';
 import signatureImage from 'images/signature.png';
 
-class Preview extends React.Component {
-    state = {
-        showSample: false,
-        previewData: this.props.previewData || {} //eslint-disable-line
+class Preview extends React.PureComponent {
+    constructor(props){
+        console.log("Preview - constructor");
+        super(props);
+        this.state = {
+            showSample: false,
+            previewData: this.props.previewData || {} //eslint-disable-line
+        }
     }
+
+    // shouldComponentUpdate(nextProps, nextState){
+    //     console.log(nextProps, nextState);
+    //     return true;
+    // }
 
     toggleSample = () => {
         this.setState(prevState => ({
@@ -20,45 +29,64 @@ class Preview extends React.Component {
     }
 
     passAdjustImagesState = (adjustImagesState) => {
-        this.setState(prevState => ({
-            previewData: Object.assign(prevState.previewData, adjustImagesState)
-        }));
+        this.setState(prevState => {
+            const { previewData: prevPreviewData } = prevState;
+            Object.assign(prevPreviewData.adjustData, adjustImagesState);
+
+            return {
+                previewData: prevPreviewData
+            };
+        });
     }
 
-    render() {
-        const { showSample, previewData } = this.state;
-        const { showAdjust, hideAdjustCallback } = this.props;
+    // getDerivedStateFromProps is invoked right before calling the render method,
+    // both on the initial mount and on subsequent updates.
+    // It should return an object to update the state, or null to update nothing.
 
-        const { previewCheckProfile } = previewData;
+    // static getDerivedStateFromProps(props, state){}
+
+    render() {
+        console.log("Preview - render");
+        const { showSample, previewData: previewDataFromState } = this.state;
+        const { showAdjust, hideAdjustCallback, previewData } = this.props;
+
+        const { checkProfileName, adjustData } = previewDataFromState;
 
         const styles = {
             micrLine: {
-                top: `${previewData.micrLineV}px`,
-                left: `${previewData.micrLineH}px`
+                top: `${adjustData.micrLineV}px`,
+                left: `${adjustData.micrLineH}px`
             },
             companyLogo: {
-                top: `${previewData.companyLogoV}px`,
-                left: `${previewData.companyLogoH}px`
+                top: `${adjustData.companyLogoV}px`,
+                left: `${adjustData.companyLogoH}px`
             },
             bankLogo: {
-                top: `${previewData.bankLogoV}px`,
-                left: `${previewData.bankLogoH}px`
+                top: `${adjustData.bankLogoV}px`,
+                left: `${adjustData.bankLogoH}px`
             },
             signature: {
-                top: `${previewData.signatureV}px`,
-                left: `${previewData.signatureH}px`
+                top: `${adjustData.signatureV}px`,
+                left: `${adjustData.signatureH}px`
             }
         };
 
         return (
             <div className="preview-container">
                 <div>
-                    <a href="#" onClick={this.toggleSample}>{showSample ? 'Hide' : 'Show'} sample</a>
-                    <span className="preview-check-profile">
-                        Previewing: <span>{previewCheckProfile}</span>
-                    </span>
+                    <Button
+                        toggle
+                        size="mini"
+                        active={!showSample}
+                        onClick={this.toggleSample}>{showSample ? 'Hide' : 'Show'} sample
+                    </Button>
+                    <div className="preview-check-profile">
+                        Previewing: <Label as="a" color="teal" tag>{checkProfileName}</Label>
+                    </div>
                 </div>
+
                 {showSample ? <Sample /> : null}
+
                 <div className="preview-image">
                     <div className="layer">
                         <Image src={checkDesignImage} />
@@ -85,7 +113,7 @@ class Preview extends React.Component {
 
                 {showAdjust ? (
                     <AdjustImages
-                        initialPreviewData={previewData}
+                        initialAdjustData={adjustData}
                         hideAdjustCallback={hideAdjustCallback}
                         passAdjustImagesState={this.passAdjustImagesState}
                     />

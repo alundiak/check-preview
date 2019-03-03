@@ -7,10 +7,8 @@
     border: 1px solid grey;
 
     .preview-check-profile {
-        position: absolute;
-        display: inline-block;
-        right: 50px;
-    } 
+        float: right;
+    }
 
     .sample {
         position: absolute;
@@ -22,6 +20,7 @@
     }
 
     .preview-info {
+        display: none; /*temp*/
         margin: 20px;
         padding: 5px;
     }
@@ -32,7 +31,7 @@
         .interactive-layer {
             position: absolute;
             border: 1px solid green;
-            top: 10px;    
+            top: 10px;
             left: 4px;
             bottom: 35px;
             right: 7px;
@@ -76,9 +75,10 @@
         margin: 10px;
         .adjust-block {
             display: inline-block;
-        }
-        .save-and-preview {
-            margin: 10px;
+
+            &.save-and-preview {
+                margin: 0 0 0 10px;
+            }
         }
     }
 }

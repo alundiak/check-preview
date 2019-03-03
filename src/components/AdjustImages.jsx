@@ -2,10 +2,14 @@ import React from 'react';
 import { Icon, Input, Button } from 'semantic-ui-react';
 
 class AdjustImages extends React.Component {
-    state = {
-        ...this.props.initialPreviewData //eslint-disable-line
-    }
+    constructor(props){
+        super(props);
+        console.log("AdjustImages  - constructor", props);
+        this.state = {
+            ...props.initialAdjustData //eslint-disable-line
+        }
 
+    }
     collectAdjustDataAndSave = () => {
         const { ...collectedState } = this.state;
         const { passAdjustImagesState } = this.props;
@@ -15,7 +19,7 @@ class AdjustImages extends React.Component {
 
     inputOnChangeHandler = (e, { name, value }) => {
         this.setState({ [name]: value }, () => {
-            this.collectAdjustDataAndSave();
+            this.collectAdjustDataAndSave(); // causes 3 rendering: AdjustImages, Preview, AdjustImages
         });
     }
 
@@ -25,6 +29,7 @@ class AdjustImages extends React.Component {
     }
 
     render() {
+        console.log("AdjustImages - render");
         const {
             companyLogoV, companyLogoH,
             bankLogoV, bankLogoH,
@@ -146,9 +151,12 @@ class AdjustImages extends React.Component {
                     </div>
                 </div>
 
-                <div className="save-and-preview">
-                    <Button primary onClick={this.saveAndClose}>Save</Button>
-                    <Button onClick={hideAdjustCallback}>Close</Button>
+                <div className="adjust-block save-and-preview">
+                    <Button.Group>
+                        <Button onClick={hideAdjustCallback}>Close</Button>
+                        <Button.Or text="or" />
+                        <Button primary onClick={this.saveAndClose}>Save</Button>
+                    </Button.Group>
                 </div>
             </div>
         );

@@ -13,7 +13,7 @@ POC-like project - Interactive Check Page Skeleton - Grid, Items, Preview.
 - "Print" triggers printing request, and PDF View popup.
 
 ## Tech Stack
-- ReactJS 
+- ReactJS
 - Webpack
 - https://react.semantic-ui.com/usage
 - [Semantic UI React](https://github.com/Semantic-Org/Semantic-UI-React)
@@ -22,3 +22,6 @@ POC-like project - Interactive Check Page Skeleton - Grid, Items, Preview.
 
 - SemanticUI React components like `Input`, `Dropdown`, `Checkbox` have to have properties `name` (to use in `setState()`), `value` with bound value from component state, and `onChange` handler. Otherwise components will not work. Tested with Input type="number", which didn't do increase/decrease until I fix code. [Details](https://github.com/Semantic-Org/Semantic-UI-React/issues/638).
 - Semantic UI `Input` vs. `Form.Input` ?
+- Use Semantic UI via file in CSS (`semantic-ui-less`) requires `css-loader`.
+- Use Semantic UI via LESS (`semantic-ui-less`) requires `theme.config`. [Details (example with Webpack 2)](https://medium.com/webmonkeys/webpack-2-semantic-ui-theming-a216ddf60daf)
+
