@@ -20,7 +20,7 @@ export default env => {
                 css: resolve(src, './css'),
                 components: resolve(src, './components'),
                 img: resolve(src, './images'),
-                '../../theme.config$': path.join(__dirname, 'my-semantic-theme/theme.config')
+                '../../theme.config$': resolve(__dirname, 'my-semantic-theme/theme.config')
             },
             modules: ['node_modules', 'bower_components', 'src'],
             extensions: ['.js', '.css', '.less', '.jsx', '.json']

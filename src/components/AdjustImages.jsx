@@ -2,14 +2,22 @@ import React from 'react';
 import { Icon, Input, Button } from 'semantic-ui-react';
 
 class AdjustImages extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         console.log("AdjustImages  - constructor", props);
         this.state = {
             ...props.initialAdjustData //eslint-disable-line
-        }
-
+        };
     }
+
+    componentWillReceiveProps(nextProps) {
+        console.log('AdjustImages - componentWillReceiveProps');
+        // This will erase any local state updates!
+        // Do not do this.
+        // YES - it does
+        this.setState({ ...nextProps.initialAdjustData });
+    }
+
     collectAdjustDataAndSave = () => {
         const { ...collectedState } = this.state;
         const { passAdjustImagesState } = this.props;
@@ -35,7 +43,7 @@ class AdjustImages extends React.Component {
             bankLogoV, bankLogoH,
             micrLineV, micrLineH,
             signatureV, signatureH
-        } = this.state;
+        } = this.state; // Have to use state here, to have Semantic UI Input work OK
 
         const { hideAdjustCallback } = this.props;
 

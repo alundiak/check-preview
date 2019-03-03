@@ -9,7 +9,7 @@ import { gridRowsData } from 'components/data';
 class App extends React.Component {
     state = {
         showAdjust: false,
-        previewData: gridRowsData[0]
+        previewData: gridRowsData[0] // TODO - maybe it's wrong to have default logic
     }
 
     handleAdjust = () => {

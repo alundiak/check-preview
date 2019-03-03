@@ -7,20 +7,30 @@ import checkDesignImage from 'images/check_design_1.gif';
 import micrLineImage from 'images/micr_line.png';
 import signatureImage from 'images/signature.png';
 
-class Preview extends React.PureComponent {
-    constructor(props){
+// if PureComponent, then when Preview.state changed, component IS NOT re-rendered
+// If Component, then re-rendered when state changed AND when props changed.
+class Preview extends React.Component {
+    constructor(props) {
         console.log("Preview - constructor");
         super(props);
         this.state = {
             showSample: false,
             previewData: this.props.previewData || {} //eslint-disable-line
-        }
+        };
     }
 
     // shouldComponentUpdate(nextProps, nextState){
     //     console.log(nextProps, nextState);
     //     return true;
     // }
+
+    // TEST - must work on Grid Row Click only !!!
+    componentWillReceiveProps(nextProps) {
+        console.log('Preview - componentWillReceiveProps');
+        // This will erase any local state updates!
+        // Do not do this.
+        this.setState({ previewData: nextProps.previewData });
+    }
 
     toggleSample = () => {
         this.setState(prevState => ({
@@ -48,7 +58,7 @@ class Preview extends React.PureComponent {
     render() {
         console.log("Preview - render");
         const { showSample, previewData: previewDataFromState } = this.state;
-        const { showAdjust, hideAdjustCallback, previewData } = this.props;
+        const { showAdjust, hideAdjustCallback, previewData: previewData } = this.props;
 
         const { checkProfileName, adjustData } = previewDataFromState;
 
