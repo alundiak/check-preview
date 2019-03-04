@@ -6,6 +6,7 @@ import Sample from 'components/Sample';
 import checkDesignImage from 'images/check_design_1.gif';
 import micrLineImage from 'images/micr_line.png';
 import signatureImage from 'images/signature.png';
+import checkPdfFile from 'images/check.pdf';
 
 // if PureComponent, then when Preview.state changed, component IS NOT re-rendered
 // If Component, then re-rendered when state changed AND when props changed.
@@ -35,11 +36,17 @@ class Preview extends React.Component {
         this.setState({ previewData: nextProps.previewData });
     }
 
-    toggleSample = () => {
-        this.setState(prevState => ({
-            showSample: !prevState.showSample
-        }));
-    }
+    showSampleHandler = () => {
+        this.setState({
+            showSample: true
+        });
+    }   
+    
+    // hideSampleHandler = () => {
+    //     this.setState({
+    //         showExample: false
+    //     });
+    // }
 
     passAdjustImagesState = (adjustImagesState) => {
         this.setState((prevState) => {
@@ -88,21 +95,28 @@ class Preview extends React.Component {
             <div className="preview-container">
                 <div>
                     <Button
-                        toggle
+                        positive
                         size="mini"
-                        active={!showSample}
-                        onClick={this.toggleSample}>{showSample ? 'Hide' : 'Show'} sample
-                    </Button>
+                        content="Show Sample"
+                        onClick={this.showSampleHandler}
+                    />
                     <div className="preview-check-profile">
                         Previewing: <Label as="a" color="teal" tag>{checkProfileName}</Label>
                     </div>
                 </div>
 
-                {showSample ? <Sample /> : null}
+                {showSample ? <Sample showSample={showSample} /> : null}
 
                 <div className="preview-image">
                     <div className="layer">
                         <Image src={checkDesignImage} />
+
+                        <embed 
+                            src={`${checkPdfFile}#view=Fit&scrollbar=0&toolbar=0&statusbar=0navpanes=0`} 
+                            width="500" 
+                            height="375" 
+                            type="application/pdf"></embed>
+
                         <div className="interactive-layer">
                             <div className="company-logo" style={styles.companyLogo}>
                                 <Icon name="building" size="big" />

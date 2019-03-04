@@ -10,13 +10,24 @@
         float: right;
     }
 
-    .sample {
-        position: absolute;
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        background-color: grey;
+    .overlay {
         z-index: 1;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        visibility: hidden;
+        opacity: 0;
+        
+        .sample {
+            z-index: 2;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
     }
 
     .preview-info {
