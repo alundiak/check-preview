@@ -4,7 +4,7 @@ import { Icon, Input, Button } from 'semantic-ui-react';
 class AdjustImages extends React.Component {
     constructor(props) {
         super(props);
-        console.log('AdjustImages  - constructor', props);
+        console.log('AdjustImages  - constructor');
         this.state = {
             ...props.initialAdjustData //eslint-disable-line
         };
@@ -34,8 +34,6 @@ class AdjustImages extends React.Component {
     }
 
     saveAdjustments = () => {
-        console.log(this.props); // initialAdjustData is same as in state. Something wrong here
-
         this.collectAdjustDataAndSave();
         this.props.hideAdjustCallback(); //eslint-disable-line
     }

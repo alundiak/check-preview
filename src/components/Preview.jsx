@@ -2,11 +2,10 @@ import React from 'react';
 import { Image, Icon, Label, Button } from 'semantic-ui-react';
 import AdjustImages from 'components/AdjustImages';
 import Sample from 'components/Sample';
+import CheckDesign from 'components/CheckDesign';
 
-import checkDesignImage from 'images/check_design_1.gif';
 import micrLineImage from 'images/micr_line.png';
 import signatureImage from 'images/signature.png';
-import checkPdfFile from 'images/check.pdf';
 
 // if PureComponent, then when Preview.state changed, component IS NOT re-rendered
 // If Component, then re-rendered when state changed AND when props changed.
@@ -40,13 +39,13 @@ class Preview extends React.Component {
         this.setState({
             showSample: true
         });
-    }   
-    
-    // hideSampleHandler = () => {
-    //     this.setState({
-    //         showExample: false
-    //     });
-    // }
+    }
+
+    hideSampleHandler = () => {
+        this.setState({
+            showSample: false
+        });
+    }
 
     passAdjustImagesState = (adjustImagesState) => {
         this.setState((prevState) => {
@@ -62,7 +61,6 @@ class Preview extends React.Component {
     // getDerivedStateFromProps is invoked right before calling the render method,
     // both on the initial mount and on subsequent updates.
     // It should return an object to update the state, or null to update nothing.
-
     // static getDerivedStateFromProps(props, state){}
 
     render() {
@@ -105,17 +103,12 @@ class Preview extends React.Component {
                     </div>
                 </div>
 
-                {showSample ? <Sample showSample={showSample} /> : null}
+                {showSample ? <Sample showSample={showSample} hideSampleHandler={this.hideSampleHandler} /> : null}
 
                 <div className="preview-image">
                     <div className="layer">
-                        <Image src={checkDesignImage} />
 
-                        <embed 
-                            src={`${checkPdfFile}#view=Fit&scrollbar=0&toolbar=0&statusbar=0navpanes=0`} 
-                            width="500" 
-                            height="375" 
-                            type="application/pdf"></embed>
+                        <CheckDesign type="img" />
 
                         <div className="interactive-layer">
                             <div className="company-logo" style={styles.companyLogo}>

@@ -1,7 +1,19 @@
 <html>
+    <head>
+        <title>EMBED variants</title>
+    </head>
     <body>
-        <embed 
-            src="./images/check.pdf#view=Fit&scrollbar=0&toolbar=0&statusbar=0navpanes=0"
-            width="500" height="375" type="application/pdf"></embed>
+        <embed
+            src="./images/check_design_1.pdf#view=FitH&scrollbar=0&toolbar=0&statusbar=0&navpanes=0&zoom=0"
+            width="510" height="225" type="application/pdf"></embed>
+
+        <object
+            width="510" height="225"
+            data="./images/check_design_1.pdf#view=FitW&scrollbar=0&toolbar=0&statusbar=0&navpanes=0&zoom=0">
+        </object>
+
+        <iframe
+            width="510" height="225"
+            src="./images/check_design_1.pdf#view=FitH&scrollbar=0&toolbar=0&statusbar=0&navpanes=0&zoom=0" />
     </body>
 </html>

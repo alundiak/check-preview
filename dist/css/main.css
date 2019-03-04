@@ -6,19 +6,29 @@
   border: 1px solid grey;
 }
 .preview-container .preview-check-profile {
-  position: absolute;
-  display: inline-block;
-  right: 50px;
+  float: right;
 }
-.preview-container .sample {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  background-color: grey;
+.preview-container .overlay {
   z-index: 1;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  visibility: hidden;
+  opacity: 0;
+}
+.preview-container .overlay .sample {
+  z-index: 2;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .preview-container .preview-info {
+  display: none;
+  /*temp*/
   margin: 20px;
   padding: 5px;
 }
@@ -27,11 +37,10 @@
 }
 .preview-container .layer .interactive-layer {
   position: absolute;
-  border: 1px solid green;
-  top: 10px;
-  left: 4px;
-  bottom: 35px;
-  right: 7px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 .preview-container .layer .interactive-layer > div {
   position: absolute;
@@ -60,14 +69,22 @@
   width: 40%;
   display: inline-block;
 }
+.preview-container .layer embed,
+.preview-container .layer object {
+  display: block;
+  /* better to avoid this transform */
+}
+.preview-container .layer .selection.dropdown {
+  z-index: 3;
+}
 .preview-container .adjust-images {
   margin: 10px;
 }
 .preview-container .adjust-images .adjust-block {
   display: inline-block;
 }
-.preview-container .adjust-images .save-and-preview {
-  margin: 10px;
+.preview-container .adjust-images .adjust-block.save-and-preview {
+  margin: 0 0 0 10px;
 }
 .grid-container {
   margin: 10px;

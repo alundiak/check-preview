@@ -24,4 +24,8 @@ POC-like project - Interactive Check Page Skeleton - Grid, Items, Preview.
 - Semantic UI `Input` vs. `Form.Input` ?
 - Use Semantic UI via file in CSS (`semantic-ui-less`) requires `css-loader`.
 - Use Semantic UI via LESS (`semantic-ui-less`) requires `theme.config`. [Details (example with Webpack 2)](https://medium.com/webmonkeys/webpack-2-semantic-ui-theming-a216ddf60daf)
+- Embed PDF in HTML, with disabling PDF viewer look.
+    - [Details 1](https://www.codexworld.com/embed-pdf-document-file-in-html-web-page/)
+    - [Details 2](https://stackoverflow.com/questions/291813/recommended-way-to-embed-pdf-in-html)
+    - PDF can be fetched via Axios as Binary, and embeded as blob later in JS/HTML. But it will require iframe.
 

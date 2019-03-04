@@ -20,7 +20,7 @@
         background: rgba(0, 0, 0, 0.7);
         visibility: hidden;
         opacity: 0;
-        
+
         .sample {
             z-index: 2;
             position: fixed;
@@ -41,11 +41,10 @@
 
         .interactive-layer {
             position: absolute;
-            border: 1px solid green;
-            top: 10px;
-            left: 4px;
-            bottom: 35px;
-            right: 7px;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
 
             > div {
                 position: absolute;
@@ -79,6 +78,14 @@
                     display: inline-block;
                 }
             }
+        }
+
+        embed, object {
+            display: block; /* better to avoid this transform */
+        }
+
+        .selection.dropdown {
+            z-index: 3;
         }
     }
 

@@ -24,14 +24,11 @@ class App extends React.Component {
     hideAdjustCallback = () => { // just close, no saving
         this.setState({
             showAdjust: false
-            // previewData: gridRowsData[0]
         });
     }
 
     clearPreviewDataCallback = () => {
         const { selectedRowIndex } = this.state;
-
-        console.log(gridRowsData);
 
         this.setState({
             previewData: gridRowsData[selectedRowIndex - 1] // have to clear to previously clicked row - TODO !!!
