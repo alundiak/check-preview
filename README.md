@@ -28,4 +28,6 @@ POC-like project - Interactive Check Page Skeleton - Grid, Items, Preview.
     - [Details 1](https://www.codexworld.com/embed-pdf-document-file-in-html-web-page/)
     - [Details 2](https://stackoverflow.com/questions/291813/recommended-way-to-embed-pdf-in-html)
     - PDF can be fetched via Axios as Binary, and embeded as blob later in JS/HTML. But it will require iframe.
+- To run in GitHub Pages mode, need to have proper static code from main `index.html` pointing to dist. So far failed.
+- To run on Heroku, need to have `webpack` and `webpack-dev-server` installed as main dependency. Changed `env` from production to development didn't help. So far failed.
 

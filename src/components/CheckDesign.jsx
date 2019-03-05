@@ -46,8 +46,6 @@ class CheckDesign extends React.Component {
     }
 
     handleDropdownChange = (e, { value }) => {
-        console.log(value);
-
         this.setState({
             type: value
         }, () => {

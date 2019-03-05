@@ -11,7 +11,6 @@ const DropdownExampleUpward = () => <Dropdown upward floating options={options} 
 
 class GridView extends React.Component {
     state = {
-        // data: this.props.gridRowsData, // maybe
         ...this.props
     }
 
