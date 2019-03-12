@@ -63,7 +63,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "92966ca3e539df46c3b8";
+/******/ 	var hotCurrentHash = "5b688fbf6a59d6130940";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -92047,7 +92047,7 @@ var gridRowsData = lodash__WEBPACK_IMPORTED_MODULE_0___default.a.times(4, functi
 
 // extracted by mini-css-extract-plugin
     if(true) {
-      // 1551745271985
+      // 1552351690052
       var cssReload = __webpack_require__(/*! ../../node_modules/css-hot-loader/hotModuleReplacement.js */ "./node_modules/css-hot-loader/hotModuleReplacement.js")(module.i, {"fileMap":"{fileName}"});
       module.hot.dispose(cssReload);
       module.hot.accept(undefined, cssReload);;
@@ -92129,7 +92129,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var css_app_less__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(css_app_less__WEBPACK_IMPORTED_MODULE_3__);
 
 
- // TODO
+ // import Test from 'components/Test';
+// TODO
 // import 'semantic-ui-css/semantic.min.css';
 // import 'semantic-ui-less/semantic.less';
 // TODO
