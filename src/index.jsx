@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from 'components/App';
+// import Test from 'components/Test';
 
 // TODO
 // import 'semantic-ui-css/semantic.min.css';
