@@ -4,6 +4,7 @@
 /* eslint jsx-a11y/label-has-associated-control: 0 */
 
 import React from 'react';
+import '../css/test.less';
 
 export class ChildComponent extends React.Component {
     render() {
@@ -12,7 +13,7 @@ export class ChildComponent extends React.Component {
         // const { childData } = this.props;
         const { field1, field2 } = this.props;
         return (
-            <div style={{ border: '1px dotted red', margin: '20px' }}>
+            <div className="test child">
                 {/* {JSON.stringify(childData)} */}
                 ChildComponent (data from props): {field1} {field2}
             </div>
@@ -46,7 +47,7 @@ export class ParentComponent extends React.Component {
         const controlId = 'parentSelector';
         const { parentData, childData } = this.state;
         return (
-            <div style={{ border: '1px dashed green', margin: '20px' }}>
+            <div className="test parent">
                 <p>Parent data:</p>
                 <div>{parentData}</div>
                 {/* <button onClick={this.changeData}>Click me</button> */}
@@ -72,7 +73,9 @@ export class Test extends React.Component {
         console.log('Test render');
 
         return (
-            <ParentComponent />
+            <div className="test">
+                <ParentComponent />
+            </div>
         );
     }
 }

@@ -1,116 +1,117 @@
-.controls{
-    margin: 10px;
+.controls {
+  margin: 10px;
 }
 
 .preview-container {
-    margin: 10px;
-    border: 1px solid grey;
+  margin: 10px;
+  border: 1px solid grey;
 
-    .preview-check-profile {
-        float: right;
+  .preview-check-profile {
+    float: right;
+  }
+
+  .overlay {
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    visibility: hidden;
+    opacity: 0;
+
+    .sample {
+      z-index: 3;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
+  }
 
-    .overlay {
-        z-index: 2;
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.7);
-        visibility: hidden;
-        opacity: 0;
+  .preview-info {
+    display: none; /*temp*/
+    margin: 20px;
+    padding: 5px;
+  }
 
-        .sample {
-            z-index: 3;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-    }
+  .layer {
+    position: relative;
 
-    .preview-info {
-        display: none; /*temp*/
-        margin: 20px;
-        padding: 5px;
-    }
+    .interactive-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
 
-    .layer {
+      > div {
+        position: absolute;
+      }
+
+      .company-logo {
+        top: 20px;
+        left: 10px;
+      }
+
+      .bank-logo {
+        top: 140px;
+        left: 10px;
+      }
+
+      .micr-line {
+        width: 50%;
         position: relative;
+        top: 195px;
+        left: 15px;
+      }
 
-        .interactive-layer {
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
+      .signature {
+        width: 42%;
+        position: relative;
+        top: 153px;
+        left: 340px;
 
-            > div {
-                position: absolute;
-            }
-
-            .company-logo {
-                top: 20px;
-                left: 10px;
-            }
-
-            .bank-logo {
-                top: 140px;
-                left: 10px;
-            }
-
-            .micr-line {
-                width: 50%;
-                position: relative;
-                top: 195px;
-                left: 15px;
-            }
-
-            .signature {
-                width: 42%;
-                position: relative;
-                top: 153px;
-                left: 340px;
-
-                img {
-                    width: 40%;
-                    display: inline-block;
-                }
-            }
+        img {
+          width: 40%;
+          display: inline-block;
         }
-
-        embed, object {
-            display: block; /* better to avoid this transform */
-        }
-
-        .selection.dropdown {
-            z-index: 1;
-        }
+      }
     }
 
-    .adjust-images {
-        margin: 10px;
-        .adjust-block {
-            display: inline-block;
-
-            &.save-and-preview {
-                margin: 0 0 0 10px;
-            }
-        }
+    embed,
+    object {
+      display: block; /* better to avoid this transform */
     }
+
+    .selection.dropdown {
+      z-index: 1;
+    }
+  }
+
+  .adjust-images {
+    margin: 10px;
+    .adjust-block {
+      display: inline-block;
+
+      &.save-and-preview {
+        margin: 0 0 0 10px;
+      }
+    }
+  }
 }
 
 .grid-container {
-    margin: 10px;
+  margin: 10px;
 
-    tbody tr {
-        cursor: pointer;
-    }
+  tbody tr {
+    cursor: pointer;
+  }
 }
 
 .preview-image {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }

@@ -2,6 +2,7 @@ import { resolve } from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import PrettierPlugin from 'prettier-webpack-plugin';
 import { getIfUtils, removeEmpty } from 'webpack-config-utils';
 
 const src = resolve(__dirname, './src');
@@ -87,7 +88,15 @@ export default env => {
                     collapseWhitespace: true
                 },
                 hash: true
-            })
+            }),
+            new PrettierPlugin({
+                printWidth: 80,               // Specify the length of line that the printer will wrap on.
+                tabWidth: 2,                  // Specify the number of spaces per indentation-level.
+                useTabs: false,               // Indent lines with tabs instead of spaces.
+                semi: true,                   // Print semicolons at the ends of statements.
+                encoding: 'utf-8',            // Which encoding scheme to use on files
+                extensions: [ ".less" ]       // Which file extensions to process
+              })
         ]),
         devServer: {
             host: 'localhost',
