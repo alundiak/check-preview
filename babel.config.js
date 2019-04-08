@@ -1,4 +1,5 @@
-{
+// This file changed from .babelrc, which was the cause of non-working import from node_modules of App.js file
+module.exports = {
     "presets": [
         "@babel/preset-env",
         "@babel/preset-react"

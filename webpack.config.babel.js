@@ -10,10 +10,18 @@ const src = resolve(__dirname, './src');
 export default env => {
     const { ifNotProduction } = getIfUtils(env);
     return {
-        entry: './src/index.jsx',
+        // "core-js/modules/es6.promise", ?
+        // "core-js/modules/es6.array.iterator", ?
+        entry: {
+            mainChunk: './src/index.jsx'
+        },
+        // entry: { // TRY
+        //     'babel-polyfil',
+        //     './src/index.jsx'
+        // },
         output: {
             path: __dirname + '/dist',
-            publicPath: '/',
+            publicPath: env.dev ? '/' : './',
             filename: 'bundle.js'
         },
         resolve: {
@@ -22,7 +30,15 @@ export default env => {
                 components: resolve(src, './components'),
                 img: resolve(src, './images'),
                 '../../theme.config$': resolve(__dirname, 'my-semantic-theme/theme.config')
+
+                // Alternative, but not sure how proper. Might be useful for "npm link"
+                // reactSum: resolve(__dirname, 'node_modules/@lundiak/react-sum/src/components/App.jsx')
             },
+
+            // Standard: 'main', 'browser', 'module' (not sure if it's Webpack or npm )
+            // Non-standard, and requires explicit mention in array: 'jsnext:main', 'esm'
+            mainFields: ['main', 'browser', 'module', 'jsnext:main',  'esm'],
+
             modules: ['node_modules', 'bower_components', 'src'],
             extensions: ['.js', '.css', '.less', '.jsx', '.json']
         },
@@ -36,10 +52,18 @@ export default env => {
                 },
                 {
                     test: /\.(js|jsx)$/,
-                    exclude: /node_modules/,
+
+                    // If you need to import JSX file directly from node_modules, u need to comment this line
+                    // exclude: /node_modules/,
+
                     use: {
                         loader: 'babel-loader'
+                        // rootMode: 'upward' // not valid
                     }
+                },
+                {
+                    test: /\.css$/,
+                    loader: 'css-loader'
                 },
                 {
                     test: /\.less$/,
@@ -66,11 +90,11 @@ export default env => {
         plugins: removeEmpty([
             ifNotProduction(new webpack.HotModuleReplacementPlugin()),
             new MiniCssExtractPlugin({
-                filename: 'css/main.css',
-                chunkFilename: 'css/main.css'
+                filename: 'css/check-preview.css', // "filename" here is not related to real file name(s) in src/css/ folder.
+                // chunkFilename: 'check-preview' // ???
             }),
             new HtmlWebpackPlugin({
-                title: 'Interactive Preview',
+                title: 'Interactive Preview', // not used. But if needed , then in index.html => `<title><%= htmlWebpackPlugin.options.title %></title>`
                 filename: 'index.html',
                 template: './src/index.html',
                 minify: {
@@ -102,29 +126,7 @@ export default env => {
             host: 'localhost',
             port: 3000,
             hot: true,
-            before(app) {
-                app.get('/api/users', (req, res) => (
-                    setTimeout(() => (
-                        res.json([{
-                            firstName: 'John',
-                            lastName: 'Smith',
-                            age: 35
-                        }, {
-                            firstName: 'Chuck',
-                            lastName: 'Norris',
-                            age: 75
-                        }, {
-                            firstName: 'Johny',
-                            lastName: 'Depp',
-                            age: 50
-                        }, {
-                            firstName: 'Andew',
-                            lastName: 'Anderson',
-                            age: 34
-                        }])
-                    ), 5000)
-                ));
-            }
+            // contentBase: './dist' // ???
         },
         devtool: 'source-map'
     }
