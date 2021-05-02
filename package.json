@@ -1,5 +1,5 @@
 {
-  "name": "check-preview",
+  "name": "@lundiak/check-preview",
   "version": "1.0.0",
   "description": "POC - Interactive Check Page Skeleton - Grid, Items, Preview.",
   "main": "index.js",
@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/alundiak/check-preview#readme",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-hot-loader": "^4.11.1",
