@@ -1,0 +1,15 @@
+.test {
+  border: 1px solid black;
+}
+
+.parent {
+  composes: test;
+  border: 1px dashed green;
+  margin: 20px;
+}
+
+.child {
+  composes: parent;
+  border: 1px dotted red;
+  margin: 20px;
+}

@@ -1,10 +1,10 @@
-// Test Component to represent  how React.Component and React.PureComponent differs.
+// Test Component to represent how React.Component and React.PureComponent differs.
 // Also was trying to test passing props by reference and via destructing
 /* eslint react/no-multi-comp: 0 */
 /* eslint jsx-a11y/label-has-associated-control: 0 */
 
 import React from 'react';
-import '../css/test.less';
+import styles from './Test.module.css';
 
 export class ChildComponent extends React.Component {
     render() {
@@ -13,7 +13,7 @@ export class ChildComponent extends React.Component {
         // const { childData } = this.props;
         const { field1, field2 } = this.props;
         return (
-            <div className="test child">
+            <div className={styles.child}>
                 {/* {JSON.stringify(childData)} */}
                 ChildComponent (data from props): {field1} {field2}
             </div>
@@ -47,7 +47,7 @@ export class ParentComponent extends React.Component {
         const controlId = 'parentSelector';
         const { parentData, childData } = this.state;
         return (
-            <div className="test parent">
+            <div className={styles.parent}>
                 <p>Parent data:</p>
                 <div>{parentData}</div>
                 {/* <button onClick={this.changeData}>Click me</button> */}
@@ -73,16 +73,9 @@ export class Test extends React.Component {
         console.log('Test render');
 
         return (
-            <div className="test">
+            <div className={styles.test}>
                 <ParentComponent />
             </div>
         );
     }
 }
-
-
-export default {
-    ParentComponent,
-    ChildComponent,
-    Test
-};

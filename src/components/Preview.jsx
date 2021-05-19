@@ -1,11 +1,10 @@
 import React from 'react';
 import { Image, Icon, Label, Button } from 'semantic-ui-react';
-import AdjustImages from 'components/AdjustImages';
-import Sample from 'components/Sample';
-import CheckDesign from 'components/CheckDesign';
-
-import micrLineImage from 'images/micr_line.png';
-import signatureImage from 'images/signature.png';
+import AdjustImages from './AdjustImages';
+import Sample from './Sample';
+import CheckDesign from './CheckDesign';
+import micrLineImage from '../images/micr_line.png';
+import signatureImage from '../images/signature.png';
 
 // if PureComponent, then when Preview.state changed, component IS NOT re-rendered
 // If Component, then re-rendered when state changed AND when props changed.

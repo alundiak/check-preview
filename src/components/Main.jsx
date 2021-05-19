@@ -1,12 +1,11 @@
 import React from 'react';
-import Preview from 'components/Preview';
-import GridView from 'components/GridView';
-// import GridItem from './components/GridItem';
 import { Container, Icon } from 'semantic-ui-react';
+import Preview from './Preview';
+import GridView from './GridView';
+// import GridItem from './GridItem';
+import { gridRowsData } from './data';
 
-import { gridRowsData } from 'components/data';
-
-class App extends React.Component {
+export class Main extends React.Component {
     state = {
         showAdjust: false,
         selectedRowIndex: 1, // alternative (human-readable index from grid rows)
@@ -82,5 +81,3 @@ class App extends React.Component {
         );
     }
 }
-
-export default App;

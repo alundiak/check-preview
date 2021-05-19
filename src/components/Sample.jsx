@@ -1,7 +1,6 @@
 import React from 'react';
 import { Image } from 'semantic-ui-react';
-
-import sampleImg from 'images/sample.png';
+import sampleImg from '../images/sample.png';
 
 class Sample extends React.Component {
     state = {

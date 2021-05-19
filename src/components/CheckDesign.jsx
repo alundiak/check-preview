@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import { Image, Dropdown } from 'semantic-ui-react';
-import checkDesignImage from 'images/check_design_1.gif';
-import checkDesignPdf from 'images/check_design_1.pdf';
+import checkDesignImage from '../images/check_design_1.gif';
+import checkDesignPdf from '../images/check_design_1.pdf';
 
 const dropDownOptions = [
     { key: 1, text: 'Image <img> + url', value: 'img' },
